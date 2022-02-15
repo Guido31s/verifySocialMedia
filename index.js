@@ -3,7 +3,7 @@ const app = express()
 const path = require('path')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
-
+let cors = require("cors")
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
@@ -17,6 +17,7 @@ const advancedOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }
+app.use(cors("*"));
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
